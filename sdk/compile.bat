@@ -19,9 +19,9 @@ node sdk\preprocess.js !JAVA_FILES! manifest.mf midlets.pro %DEFINES%
 
 echo Copying assets
 mkdir build\res 2>nul
-xcopy res\* build\res
+xcopy /y res\* build\res
 cd build\res
-del %EXCLUDES%
+if not "%EXCLUDES%" == "" del %EXCLUDES%
 cd ..\..
 
 :: Recursively find java files that need to be compiled (build/src)
